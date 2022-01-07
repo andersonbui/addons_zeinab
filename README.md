@@ -1,2 +1,2 @@
-# odoor_epo
+# odoo_repo
 odoo apps
