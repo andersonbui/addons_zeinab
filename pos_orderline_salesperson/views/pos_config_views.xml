@@ -14,7 +14,7 @@
                     <div class="o_setting_right_pane">
                         <label for="allow_orderline_user"/>
                         <div class="text-muted">
-                            Add users to orderlines
+                            Add salesperson to orderlines
                         </div>
                     </div>
                 </div>
