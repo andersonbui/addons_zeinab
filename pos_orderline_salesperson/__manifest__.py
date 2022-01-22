@@ -9,13 +9,24 @@
     'depends': ['point_of_sale'],
     'data': [
         'views/pos_config_views.xml',
-        'views/pos_template.xml',
         'views/pos_order_views.xml',
     ],
-    'qweb': [
-        'static/src/xml/salesperson_popup.xml',
-        'static/src/xml/salesperson.xml',
+    'assets': {
+        'point_of_sale.assets': [
+            'pos_orderline_salesperson/static/src/css/salesperson.css',
+            'pos_orderline_salesperson/static/src/js/models.js',
+            'pos_orderline_salesperson/static/src/js/orderline.js',
+            'pos_orderline_salesperson/static/src/js/salesperson.js',
+            'pos_orderline_salesperson/static/src/js/salespersonpopup.js',
+        ],
+        'web.assets_qweb': [
+            'pos_orderline_salesperson/static/src/xml/**/*',
+        ],
+    },
+    'images': [
+        'static/description/click_button_to_open_wizard.png',
     ],
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
     'auto_install': False,
