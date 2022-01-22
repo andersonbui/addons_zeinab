@@ -16,6 +16,7 @@
         'static/src/xml/salesperson_popup.xml',
         'static/src/xml/salesperson.xml',
     ],
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
     'auto_install': False,
