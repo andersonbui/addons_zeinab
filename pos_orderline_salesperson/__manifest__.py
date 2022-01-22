@@ -16,6 +16,9 @@
         'static/src/xml/salesperson_popup.xml',
         'static/src/xml/salesperson.xml',
     ],
+    'images': [
+        'static/description/click_button_to_open_wizard.png',
+    ],
     'license': 'LGPL-3',
     'installable': True,
     'application': True,
