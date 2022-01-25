@@ -14,6 +14,12 @@ odoo.define('pos_orderline_salesperson.orderline', function(require) {
                     orderline: this.props.line,
                 });
            }
+
+           removesalesperson(){
+                this.props.line.salesperson = '';
+                this.props.line.salesperson_id = 0.0;
+                this.props.line.trigger('change',this.props.line);
+           }
         };
 
     Registries.Component.extend(Orderline, PosResOrderline);
