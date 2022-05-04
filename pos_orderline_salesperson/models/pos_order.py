@@ -11,7 +11,7 @@ class PosOrder(models.Model):
 class PosOrderLine(models.Model):
 	_inherit = "pos.order.line"
 
-	salesperson_id = fields.Many2one('res.users', string='Salesperson',
+	salesperson_id = fields.Many2one('hr.employee', string='Salesperson',
 										help='Salesperson who selected in pos')
 
 

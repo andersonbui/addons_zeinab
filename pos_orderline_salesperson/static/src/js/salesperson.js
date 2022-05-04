@@ -17,7 +17,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
         },
         set_salesperson: function(salesperson){
             this.salesperson = salesperson.value;
-            this.salesperson_id = salesperson.id;
+            this.salesperson_id = salesperson.id;            
             this.trigger('change',this);
         },
         get_salesperson: function(salesperson){
@@ -64,7 +64,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             var self = this;
             this.pos.gui.show_popup('salespersonpopup',{
                 title: _t('Select Salesperson'),
-                users: self.pos.users,
+                salespersons: self.pos.employees_salesperson,
                 pos: self.pos,
                 orderline: orderline,
             });
@@ -77,7 +77,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             var self = this;
             this.pos.gui.show_popup('salespersonpopup',{
                 title: _t('Select Salesperson'),
-                users: self.pos.users,
+                salespersons: self.pos.employees_salesperson,
                 pos: self.pos,
             });
         },

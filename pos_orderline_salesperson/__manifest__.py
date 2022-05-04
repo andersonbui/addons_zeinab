@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'POS Orderline Salesperson',
-    'version': '13.1.1.0',
+    'version': '13.1.2.0',
     'summary': 'POS Orderline Salesperson',
     'category': 'Sales/Point Of Sale',
-    'author': 'Zeinab Abdelmonem',
-    'email': 'zeinababdelmonem9@gmail.com',
-    'depends': ['point_of_sale'],
+    'author': 'Zeinab Abdelmonem, Ingenioso CO',
+    'email': 'zeinababdelmonem9@gmail.com, info@ingenioso.co',
+    'depends': ['point_of_sale', "hr"],
     'data': [
         'views/pos_config_views.xml',
         'views/pos_template.xml',

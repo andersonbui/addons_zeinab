@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_orderline_salesperson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20220401\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-04 12:56+0000\n"
+"PO-Revision-Date: 2022-05-04 12:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_orderline_salesperson
+#: model_terms:ir.ui.view,arch_db:pos_orderline_salesperson.pos_config_view_form_inherit
+msgid "<span class=\"o_form_label oe_edit_only\">Allowed Employees </span>"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#: model_terms:ir.ui.view,arch_db:pos_orderline_salesperson.pos_config_view_form_inherit
+msgid "Add salesperson to orderlines"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#: model:ir.model.fields,field_description:pos_orderline_salesperson.field_pos_config__allow_orderline_user
+#: model:ir.model.fields,field_description:pos_orderline_salesperson.field_pos_order__allow_orderline_user
+msgid "Allow Orderline Salesperson"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#: model:ir.model.fields,help:pos_orderline_salesperson.field_pos_config__allow_orderline_user
+#: model:ir.model.fields,help:pos_orderline_salesperson.field_pos_order__allow_orderline_user
+msgid "Allow custom salesperson on Orderlines"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#. openerp-web
+#: code:addons/pos_orderline_salesperson/static/src/xml/salesperson_popup.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_orderline_salesperson
+#: model:ir.model.fields,field_description:pos_orderline_salesperson.field_pos_config__employee_salesperson_ids
+msgid "Employees with access"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#: model:ir.model.fields,help:pos_orderline_salesperson.field_pos_config__employee_salesperson_ids
+msgid "If left empty, all employees can log in to the PoS session"
+msgstr ""
+
+#. module: pos_orderline_salesperson
+#: model:ir.model,name:pos_orderline_salesperson.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_orderline_salesperson
+#: model:ir.model,name:pos_orderline_salesperson.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Líneas de Orden de Punto de Venta"
+
+#. module: pos_orderline_salesperson
+#: model:ir.model,name:pos_orderline_salesperson.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
+
+#. module: pos_orderline_salesperson
+#: model:ir.model,name:pos_orderline_salesperson.model_report_pos_order
+msgid "Point of Sale Orders Report"
+msgstr "Reporte de Órdenes del Punto de Venta"
+
+#. module: pos_orderline_salesperson
+#. openerp-web
+#: code:addons/pos_orderline_salesperson/static/src/xml/salesperson.xml:0
+#: model:ir.model.fields,field_description:pos_orderline_salesperson.field_pos_order_line__salesperson_id
+#: model:ir.model.fields,field_description:pos_orderline_salesperson.field_report_pos_order__salesperson_id
+#, python-format
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: pos_orderline_salesperson
+#: model:ir.model.fields,help:pos_orderline_salesperson.field_pos_order_line__salesperson_id
+msgid "Salesperson who selected in pos"
+msgstr "Vendedor seleccionado en PTV"
+
+#. module: pos_orderline_salesperson
+#. openerp-web
+#: code:addons/pos_orderline_salesperson/static/src/js/salesperson.js:0
+#: code:addons/pos_orderline_salesperson/static/src/js/salesperson.js:0
+#, python-format
+msgid "Select Salesperson"
+msgstr "Seleccionar vendedor"

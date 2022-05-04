@@ -5,13 +5,13 @@
         <div role="dialog" class="modal-dialog">
             <div class="popup popup-text">
                 <header class="title"><t t-esc="widget.options.title || '' " /></header>
-                <t t-if="widget.options.users">
+                <t t-if="widget.options.salespersons">
                     <div class='salesperson-scroll'>
                         <table class='salesperson'>
                             <tbody>
-                                <tr class="salesperson-selected" t-foreach="widget.options.users" t-as="user" t-att-data-value="user['name']" t-att-data-id="user['id']">
+                                <tr class="salesperson-selected" t-foreach="widget.options.salespersons" t-as="salesperson" t-att-data-value="salesperson['name']" t-att-data-id="salesperson['id']">
                                     <td>
-                                        <span t-esc="user['name']" />
+                                        <span t-esc="salesperson['name']" />
                                     </td>
                                 </tr>
                             </tbody>
