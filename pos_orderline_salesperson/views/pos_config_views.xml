@@ -19,7 +19,7 @@
                          <div attrs="{'invisible': [('allow_orderline_user', '=', False)]}">
                             <span class="o_form_label oe_edit_only">Allowed Employees </span>
                             <field name="employee_salesperson_ids" widget="many2many_tags" 
-                            domain="[('company_id', '=', company_id)]"
+                            domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"
                             />
                         </div>
                     </div>
