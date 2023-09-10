@@ -6,13 +6,21 @@
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='fiscal_position_id']" position="after">
+        	<xpath expr="//field[@name='lines']/tree/field[@name='price_subtotal_incl']" position="after">
+                <field name="commission_free" invisible="1" />
+        		<field
+                    name="agent_ids"
+                    widget="many2many_tags"
+                    context="{'amount': 1}"
+                    attrs="{'column_invisible':[('parent.allow_orderline_user','=', False)]}"
+                    string="Commision"
+                />
+                <field name="commission_free" invisible="1" />
+        	</xpath>
+        	<xpath expr="//group[@name='order_total']/field[@name='amount_total']" position="after">
+        		<field name="commission_total"/>
                 <field name="allow_orderline_user" invisible="1"/>
             </xpath>
-
-        	<xpath expr="//field[@name='lines']/tree/field[@name='price_subtotal_incl']" position="after">
-        		<field name="salesperson_id" attrs="{'column_invisible':[('parent.allow_orderline_user','=', False)]}"/>
-        	</xpath>
         </field>
     </record>
 

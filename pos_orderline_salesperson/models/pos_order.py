@@ -14,17 +14,11 @@ class PosOrder(models.Model):
 			pass
 		
 	commission_total = fields.Float(
-		string="Commissions", compute="_compute_commission_total", store=True,
+		string="Total Commission", compute="_compute_commission_total", store=True,
 	)
 
 	def recompute_lines_agents(self):
 		self.mapped("lines").recompute_agents()
-	
-	@api.model
-	def create_from_ui(self, orders, draft=False):
-		result = super().create_from_ui(orders, draft)
-		return result
-		
 
 	def _process_payment_lines(self, pos_order, order, pos_session, draft):
 		for line in pos_order["lines"]:
@@ -54,10 +48,6 @@ class PosOrderLine(models.Model):
 	]
 
 	_name = "pos.order.line"
-	
-	salesperson_id = fields.Many2one('hr.employee', string='Salesperson',
-									help='Salesperson who selected in pos')									
-
 	agent_ids = fields.One2many(comodel_name="pos.order.line.agent")
 	
 	@api.depends("order_id.partner_id")
@@ -70,16 +60,11 @@ class PosOrderLine(models.Model):
 				)
 
 	def _order_line_fields(self, line, session_id=None):
-
-		employee_id = line[2]["salesperson_id"]
-		#employee = self.env["hr.employee"].browse(employee_id)
-		employee = self.env["hr.employee"].search(
-			[
-				("id", "=", employee_id)
-			]
-		)
 		
-		if(employee['agent_id']):
+		if line and 'salesperson_id' in line[2]:
+			employee_id = line[2]["salesperson_id"]
+			#employee = self.env["hr.employee"].browse(employee_id)
+			employee = self.env["hr.employee"].search([("id", "=", employee_id)])
 			agent_id_list = employee['agent_id']
 			agent_id = agent_id_list[0].id
 			commission = agent_id_list[0].commission_id.id
@@ -87,6 +72,7 @@ class PosOrderLine(models.Model):
 			line[2]["agent_ids"] = [
 				(0, 0, {"agent_id": agent_id, "commission_id": commission})
 			]
+
 		return super()._order_line_fields(line, session_id)
 
 
@@ -110,4 +96,16 @@ class PosOrderLineAgent(models.Model):
 				order_line.product_id,
 				order_line.qty,
 			)
+
+	@api.depends('agent_id', 'amount')
+	def name_get(self):
+		result = []
+		for record in self:
+			if self.env.context.get('agent', False):
+				result.append((record.id, "{}".format(record.amount)))
+			elif self._context.get('amount', False):
+				result.append((record.id, "{}".format(record.agent_id.name)))
+			else:
+				result.append((record.id, "${} ({})".format(record.amount, record.agent_id.name)))
+		return result
    
