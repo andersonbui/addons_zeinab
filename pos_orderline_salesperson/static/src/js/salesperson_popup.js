@@ -15,13 +15,13 @@ odoo.define('pos_orderline_salesperson.salesperson_popup', function (require) {
             this.$('.salesperson-selected').click(function(){
                 var order = options.pos.get_order();
                 var self = this;
-                var salesperson = $(this).data('value');
+                //var salesperson = $(this).data('value');
+                /* si no se selecciono desde na linea de venta, es para toda la orden */
                 if (!options.orderline) {
                     order.get_orderlines().forEach(function (orderline) {
                         orderline.set_salesperson(self.dataset);
                     });
-                }
-                else{
+                } else {
                     options.orderline.set_salesperson(self.dataset);
                     options.orderline.trigger('change',options.orderline);
                 }

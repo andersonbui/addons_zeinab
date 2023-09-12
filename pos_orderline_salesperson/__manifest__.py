@@ -6,8 +6,9 @@
     'category': 'Sales/Point Of Sale',
     'author': 'Zeinab Abdelmonem, Ingenioso CO',
     'email': 'zeinababdelmonem9@gmail.com, info@ingenioso.co',
-    'depends': ['point_of_sale', "hr"],
+    'depends': ['point_of_sale', "hr","sale_commission","hr_commission"],
     'data': [
+        'security/ir.model.access.csv',
         'views/pos_config_views.xml',
         'views/pos_template.xml',
         'views/pos_order_views.xml',
