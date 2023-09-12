@@ -20,26 +20,26 @@ class PosOrder(models.Model):
 	def recompute_lines_agents(self):
 		self.mapped("lines").recompute_agents()
 
-	def _process_payment_lines(self, pos_order, order, pos_session, draft):
-		for line in pos_order["lines"]:
-			employee_id = line[2]["salesperson_id"]		
-			employee = self.env["hr.employee"].search(
-                [
-                    ("id", "=", employee_id)
-				]
-			)
-			employee['agent_id']
+	# def _process_payment_lines(self, pos_order, order, pos_session, draft):
+	# 	for line in pos_order["lines"]:
+	# 		employee_id = line[2]["salesperson_id"]		
+	# 		employee = self.env["hr.employee"].search(
+    #             [
+    #                 ("id", "=", employee_id)
+	# 			]
+	# 		)
+	# 		employee['agent_id']
 
-		result = super()._process_payment_lines(pos_order, order, pos_session, draft)
-		return result
+	# 	result = super()._process_payment_lines(pos_order, order, pos_session, draft)
+	# 	return result
 
-	def _prepare_invoice_line(self, order_line):
-		vals = super()._prepare_invoice_line(order_line)
-		vals["agent_ids"] = [
-			(0, 0, {"agent_id": x.agent_id.id, "commission_id": x.commission_id.id})
-			for x in order_line.agent_ids
-		]
-		return vals
+	# def _prepare_invoice_line(self, order_line):
+	# 	vals = super()._prepare_invoice_line(order_line)
+	# 	vals["agent_ids"] = [
+	# 		(0, 0, {"agent_id": x.agent_id.id, "commission_id": x.commission_id.id})
+	# 		for x in order_line.agent_ids
+	# 	]
+	# 	return vals
 
 class PosOrderLine(models.Model):
 	_inherit = [
