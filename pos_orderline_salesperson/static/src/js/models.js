@@ -12,10 +12,10 @@ models.load_models([{
         if (self.config.allow_orderline_user) {
             if (self.config.employee_salesperson_ids.length > 0) {
                 self.employees_salesperson = employees.filter(function(employee) {
-                    return self.config.employee_salesperson_ids.includes(employee.id) || employee.user_id[0] === self.user.id;
+                    return self.config.employee_salesperson_ids.includes(employee.id);
                 });
             } else {
-                self.employees_salesperson = employees;
+                self.employees_salesperson = [];
             }
             self.employees_salesperson.forEach(function(employee) {
                 employee.role = 'salesperson';
