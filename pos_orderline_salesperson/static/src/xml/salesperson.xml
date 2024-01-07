@@ -5,6 +5,7 @@
         <t t-jquery=".info-list t:first li" t-operation="append">
             <span class="orderline-salesperson" t-if="widget.pos.config.allow_orderline_user">
                 <i class="oe_link_icon fa fa-user oe_icon line-salesperson-icon oe_green" t-if="line.get_salesperson()" role="img"/>
+                <i class="oe_link_icon fa fa-close oe_icon line-remove-salesperson oe_red" t-if="line.get_salesperson()" role="img"/>
                 <i class="oe_link_icon fa fa-user-plus oe_icon line-salesperson-icon oe_red" t-if="!line.get_salesperson()" role="img"/>
                 <t t-esc="line.get_salesperson()" />
             </span>
