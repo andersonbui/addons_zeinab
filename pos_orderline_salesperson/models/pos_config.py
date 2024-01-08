@@ -9,3 +9,5 @@ class PosConfig(models.Model):
     employee_salesperson_ids = fields.Many2many(
         'hr.employee', "hr_employee_salesperson" ,string="Employees with access",
         help='If left empty, all employees can log in to the PoS session')
+
+    mandatory_salesperson = fields.Boolean("Mandatory", default=True, help="Enable mandatory salesperson.")

@@ -7,6 +7,7 @@
             <script type="text/javascript" src="/pos_orderline_salesperson/static/src/js/salesperson.js"></script>
             <script type="text/javascript" src="/pos_orderline_salesperson/static/src/js/salesperson_popup.js"></script>
             <script type="text/javascript" src="/pos_orderline_salesperson/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/pos_orderline_salesperson/static/src/js/payment_screen.js"></script>
         </xpath>
     </template>
 
