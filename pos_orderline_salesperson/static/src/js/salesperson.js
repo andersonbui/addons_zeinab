@@ -13,11 +13,16 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
         initialize: function(attr, options) {
             _super_orderline.initialize.call(this,attr,options);
             this.salesperson = this.salesperson || "";
-            this.salesperson_id = this.salesperson_id || 0.0;
+            this.salesperson_id = this.salesperson_id || false;
         },
         set_salesperson: function(salesperson){
             this.salesperson = salesperson.value;
             this.salesperson_id = salesperson.id;            
+            this.trigger('change',this);
+        },
+        remove_salesperson: function(){
+            this.salesperson = "";
+            this.salesperson_id = false;            
             this.trigger('change',this);
         },
         get_salesperson: function(salesperson){
@@ -56,6 +61,12 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             if(salesperson_icon){
                 salesperson_icon.addEventListener('click', (function() {
                     this.show_salesperson_popup(orderline);
+                }.bind(this)));
+            }
+            var remove_salesperson = node.querySelector('.line-remove-salesperson');
+            if(remove_salesperson){
+                remove_salesperson.addEventListener('click', (function() {
+                    orderline.remove_salesperson();
                 }.bind(this)));
             }
             return node;

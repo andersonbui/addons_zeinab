@@ -16,11 +16,18 @@
                         <div class="text-muted">
                             Add salesperson to orderlines
                         </div>
-                         <div attrs="{'invisible': [('allow_orderline_user', '=', False)]}">
-                            <span class="o_form_label oe_edit_only">Allowed Employees </span>
-                            <field name="employee_salesperson_ids" widget="many2many_tags" 
-                            domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"
-                            />
+                        <div class="content-group pos_iot_config" attrs="{'invisible': [('allow_orderline_user', '=', False)]}">
+
+                            <div class="row">
+                                <label string="List Allowed Employees" for="employee_salesperson_ids" class="col-lg-4 o_light_label"/>
+                                <field name="employee_salesperson_ids" widget="many2many_tags" 
+                                    domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"  attrs="{'required': [('allow_orderline_user', '=', True)]}" 
+                                />
+                            </div>
+                            <div class="row">
+                                <label string="Mandatory Salesperson" for="mandatory_salesperson" class="col-lg-4 o_light_label"/>
+                                <field name="mandatory_salesperson" />
+                            </div>
                         </div>
                     </div>
                 </div>
