@@ -65,10 +65,10 @@ class PosOrderLine(models.Model):
 			employee_id = line[2]["salesperson_id"]
 			#employee = self.env["hr.employee"].browse(employee_id)
 			employee = self.env["hr.employee"].search([("id", "=", employee_id)])
-			if ( employee ):
-				agent_id_list = employee['agent_id']
-				agent_id = agent_id_list[0].id
-				commission = agent_id_list[0].commission_id.id
+			agent_id_list = employee['agent_id']
+			for agent in agent_id_list:
+				agent_id = agent.id
+				commission = agent.commission_id.id
 			
 				line[2]["agent_ids"] = [
 					(0, 0, {"agent_id": agent_id, "commission_id": commission})
