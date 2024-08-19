@@ -14,7 +14,7 @@ odoo.define('point_of_sale_screens', function (require) {
             var order = this.pos.get_order();
             if(
                 ! Boolean(this.pos.config.allow_orderline_user) ||
-                ! Boolean(self.config.employee_salesperson_ids?.length > 0)
+                ! Boolean(this.pos.config.employee_salesperson_ids?.length > 0)
             ) {
                 return true;
             }
